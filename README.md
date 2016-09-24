@@ -7,21 +7,39 @@ First, install [Yeoman](http://yeoman.io) and generator-react-redux-saga-generat
 
 ```bash
 npm install -g yo
-npm install -g generator-react-redux-saga-generator
+npm install -g rakannimer/react-redux-saga-cli
 ```
 
-Then generate your new project:
 
-```bash
-yo react-redux-saga-generator
+## Usage
+
+```
+yo react-redux-saga-cli
+```
 ```
 
-## Getting To Know Yeoman
+                 ╭──────────────────────────╮
+                 │      Welcome to the      │
+                 │   react-redux-saga-cli   │
+                 │        generator!        │
+                 │  The following commands  │
+     _-----_     │      are supported :     │
+    |       |    │            yo            │
+    |--(o)--|    │ react-redux-saga-cli:sag │
+   `---------´   │             a            │
+    ( _´U`_ )    │            yo            │
+    /___A___\   /│ react-redux-saga-cli:red │
+     |  ~  |     │           ucer           │
+   __'.___.'__   │            yo            │
+ ´   `  |° ´ Y ` │ react-redux-saga-cli:con │
+                 │          tainer          │
+                 │            yo            │
+                 │ react-redux-saga-cli:com │
+                 │          ponent          │
+                 ╰──────────────────────────╯
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
+```
+
 
 ## License
 
