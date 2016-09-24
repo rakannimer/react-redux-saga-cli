@@ -1,5 +1,4 @@
-# generator-react-redux-saga-generator [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> react-redux-saga helper cli
+# generator-react-redux-saga-generator
 
 ## Installation
 
@@ -11,44 +10,22 @@ npm install -g rakannimer/react-redux-saga-cli
 ```
 
 
-## Usage
+## Commands
 
 ```
-yo react-redux-saga-cli
-```
-```
-
-                 ╭──────────────────────────╮
-                 │      Welcome to the      │
-                 │   react-redux-saga-cli   │
-                 │        generator!        │
-                 │  The following commands  │
-     _-----_     │      are supported :     │
-    |       |    │            yo            │
-    |--(o)--|    │ react-redux-saga-cli:sag │
-   `---------´   │             a            │
-    ( _´U`_ )    │            yo            │
-    /___A___\   /│ react-redux-saga-cli:red │
-     |  ~  |     │           ucer           │
-   __'.___.'__   │            yo            │
- ´   `  |° ´ Y ` │ react-redux-saga-cli:con │
-                 │          tainer          │
-                 │            yo            │
-                 │ react-redux-saga-cli:com │
-                 │          ponent          │
-                 ╰──────────────────────────╯
-
+yo react-redux-saga-cli:app
+yo react-redux-saga-cli:bootstrap
+yo react-redux-saga-cli:feature
+yo react-redux-saga-cli:saga
+yo react-redux-saga-cli:reducer
+yo react-redux-saga-cli:container
+yo react-redux-saga-cli:component
+yo react-redux-saga-cli:middleware
+yo react-redux-saga-cli:reducer
+yo react-redux-saga-cli:store
 ```
 
 
 ## License
 
 MIT © [RakanNimer](https://www.github.com/RakanNimer)
-
-
-[npm-image]: https://badge.fury.io/js/generator-react-redux-saga-generator.svg
-[npm-url]: https://npmjs.org/package/generator-react-redux-saga-generator
-[travis-image]: https://travis-ci.org/RakanNimer/generator-react-redux-saga-generator.svg?branch=master
-[travis-url]: https://travis-ci.org/RakanNimer/generator-react-redux-saga-generator
-[daviddm-image]: https://david-dm.org/RakanNimer/generator-react-redux-saga-generator.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/RakanNimer/generator-react-redux-saga-generator
