@@ -48,8 +48,7 @@
   },
   "repository": "RakanNimer/generator-react-redux-saga-generator",
   "scripts": {
-    "prepublish": "gulp prepublish",
-    "test": "gulp"
+
   },
   "license": "MIT"
 }
