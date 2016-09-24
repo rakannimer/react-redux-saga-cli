@@ -6,17 +6,16 @@ var state = require('../initialState');
 
 
 module.exports = yeoman.Base.extend({
+  end : function () {
+    this.composeWith('react-redux-saga-cli:reducerIndex');
+  },
   prompting: function () {
-    // Have Yeoman greet the user.
-    // this.log(yosay(
-    //   'Welcome to the striking ' + chalk.red('generator-react-redux-saga-cli') + ' generator!'
-    // ));
-
+    this.log(yosay("Creating Reducer"));
     var prompts = [
       {
         type: 'input',
         name: 'REDUCER_NAME',
-        message: 'Would you like to call your reducer ?',
+        message: 'What would you like to call your reducer ?',
         default: "DEFAULT_REDUCER_NAME"
       },
       {
@@ -27,14 +26,18 @@ module.exports = yeoman.Base.extend({
       }
     ];
 
-    return this.prompt(prompts).then(function (props) {
-      // To access props later use this.props.someAnswer;
-      let actions = props.ACTION_NAMES.split(' ');
+    if (!this.options.isNested){
+      return this.prompt(prompts).then(function (props) {
+        let actions = props.ACTION_NAMES.split(' ');
+        this.props = Object.assign({}, props, {
+          actions
+        });
+      }.bind(this));
+    }
+    else {
+        this.props = this.options.props;
+    }
 
-      this.props = Object.assign({}, props, {
-        actions
-      });
-    }.bind(this));
   },
 
   writing: function () {

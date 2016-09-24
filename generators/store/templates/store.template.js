@@ -5,14 +5,11 @@ import watch from 'redux-watch'
 import createSagaMiddleware from 'redux-saga'
 
 <% for (var i = 0; i < reducers.length; i++) { %>
-import <%= reducers[i] %> from '../reducers/<%=reducers[i]%>'.js
-<% } %>
+import <%= reducers[i].split(".")[0] %> from '../reducers/<%=reducers[i]%>' <% } %>
 <% for (var i = 0; i < sagas.length; i++) { %>
-import <%= sagas[i] %> from '../sagas/<%=sagas[i]%>'.js
-<% } %>
+import <%= sagas[i].split(".")[0] %> from '../sagas/<%=sagas[i]%>' <% } %>
 <% for (var i = 0; i < middlewares.length; i++) { %>
-import <%= middlewares[i] %> from '../middlewares/<%=middlewares[i]%>'.js
-<% } %>
+import <%= middlewares[i].split(".")[0] %> from '../middlewares/<%=middlewares[i]%>'.js <% } %>
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -20,8 +17,7 @@ let store = createStore(appReducers,
   compose(
     applyMiddleware(thunk,
       <% for (var i = 0; i < middlewares.length; i++) { %>
-        <%= middlewares[i] %>,
-      <% } %>
+        <%= middlewares[i] %>, <% } %>
       sagaMiddleware,
       record.middleware),
     window.devToolsExtension ? window.devToolsExtension() : f => f

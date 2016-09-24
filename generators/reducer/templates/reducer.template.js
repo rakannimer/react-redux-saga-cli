@@ -10,8 +10,7 @@ export default function (state = INITIAL_STATE, action) {
       case "<%=actions[i]%>":
         return update(state, {
 
-        });
-      <%  } %>
+        }); <%  } %>
     default:
       return state;
   }

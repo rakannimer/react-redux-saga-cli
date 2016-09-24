@@ -8,7 +8,7 @@ var path = require('path');
 
 module.exports = yeoman.Base.extend({
   prompting: function () {
-
+    this.log(yosay("Creating Store"));
   },
 
   writing: function () {

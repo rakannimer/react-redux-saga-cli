@@ -6,9 +6,7 @@ class <%=COMPONENT_NAME%> extends React.Component {
   }
   render() {
       return (
-        <div>
-          <%=COMPONENT_NAME%>
-        </div>
+
       );
   }
 };

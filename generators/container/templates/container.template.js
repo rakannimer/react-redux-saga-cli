@@ -9,10 +9,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onAction: (actionData) => {
-      dispatch({
-        type: 'ACTION_NAME',
-         payload: {}
-      })
+      <% for (var i =0; i < actions.length; i++) { %>
+        dispatch({
+          type: '<%= actions[i]%>',
+           payload: {}
+        }); <%  } %>
     }
   };
 };
