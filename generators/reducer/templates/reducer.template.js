@@ -1,5 +1,5 @@
 // Reducer
-import { INITIAL_STATE } from '../constants/DEFAULT_STATE';
+import INITIAL_STATE from '../constants/INITIAL_STATE';
 
 import update from 'react-addons-update';
 

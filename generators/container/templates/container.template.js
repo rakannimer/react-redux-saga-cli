@@ -1,5 +1,5 @@
 import <%=COMPONENT_NAME%> from '../components/<%=COMPONENT_NAME%>';
-import { connect, Provider } from 'react-redux';
+import { connect } from 'react-redux';
 
 
 const mapStateToProps = (state) => {

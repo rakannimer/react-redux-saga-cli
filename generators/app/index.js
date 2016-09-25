@@ -2,6 +2,7 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var actionNameCreator = require("../../helpers/actionNameCreator");
 
 module.exports = yeoman.Base.extend({
   prompting: function () {
@@ -19,5 +20,11 @@ module.exports = yeoman.Base.extend({
       yo react-redux-saga-cli:store
       `
     ));
+    var actionNames = actionNameCreator.readActionsFromUserland();
+    this.config.set({actionNames: actionNames });
+    var actionNamesString = actionNameCreator.actionsToPrettyString(actionNames);
+    console.log(
+        "I found the following actions, adding them to memory "+actionNamesString
+    );
   }
 });

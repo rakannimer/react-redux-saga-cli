@@ -19,6 +19,10 @@ module.exports = yeoman.Base.extend({
       if (indexFileIndex > -1){
         components.splice(indexFileIndex, 1);
       }
+      var indexFileIndex = components.indexOf('.DS_Store');
+      if (indexFileIndex > -1){
+        components.splice(indexFileIndex, 1);
+      }
 
     }
     catch(err){

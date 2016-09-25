@@ -14,16 +14,18 @@ module.exports = yeoman.Base.extend({
   writing: function () {
     var reducersPath = path.join(process.cwd(),'reducers');
 
-    try {
-        var reducers = fs.readdirSync(reducersPath);
-    }
-    catch(err){
-      var reducers = [];
-    }
     var sagasPath = path.join(process.cwd(),'sagas');
 
     try {
       var sagas = fs.readdirSync(sagasPath);
+      var indexFileIndex = sagas.indexOf('index.js');
+      if (indexFileIndex > -1){
+        sagas.splice(indexFileIndex, 1);
+      }
+      var indexFileIndex = sagas.indexOf('.DS_Store');
+      if (indexFileIndex > -1){
+        sagas.splice(indexFileIndex, 1);
+      }
     }
     catch(err){
       var sagas = [];
@@ -32,6 +34,14 @@ module.exports = yeoman.Base.extend({
 
     try {
         var middlewares = fs.readdirSync(middlewaresPath);
+        var indexFileIndex = middlewares.indexOf('index.js');
+        if (indexFileIndex > -1){
+          middlewares.splice(indexFileIndex, 1);
+        }
+        var indexFileIndex = middlewares.indexOf('.DS_Store');
+        if (indexFileIndex > -1){
+          middlewares.splice(indexFileIndex, 1);
+        }
     }
     catch(err){
       var middlewares = [];
@@ -40,7 +50,7 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('store.template.js'),
       this.destinationPath(state.STORE_PATH+'index.js'),
-      {reducers, sagas, middlewares}
+      {reducersPath, sagas, middlewares}
     );
   }
 });

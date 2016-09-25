@@ -3,6 +3,7 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var state = require('../initialState');
+var actionNameCreator = require("../../helpers/actionNameCreator");
 
 module.exports = yeoman.Base.extend({
   end : function () {
@@ -11,8 +12,9 @@ module.exports = yeoman.Base.extend({
   },
   prompting: function () {
     this.log(yosay("Creating Saga"));
-
-    var prompts = [{
+    actionNameCreator.logActions();
+    var prompts = [
+      {
         type: 'input',
         name: 'ACTION_NAMES',
         message: 'What would you like to call the actions (space-separated) ?',
@@ -32,7 +34,6 @@ module.exports = yeoman.Base.extend({
           STORE_PATH: state.STORE_PATH,
           actions
         });
-
       }.bind(this));
     }
     else {
@@ -42,6 +43,7 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
+    this.composeWith('react-redux-saga-cli:action',  {options:{isNested: true, props: this.props}});
     this.fs.copyTpl(
       this.templatePath('saga.template.js'),
       this.destinationPath(state.SAGAS_PATH+this.props.SAGA_NAME+'.js'),
