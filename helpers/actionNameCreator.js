@@ -1,7 +1,8 @@
+var state = require('../generators/initialState');
 var actionNameCreator = {
   readActionsFromUserland: function(){
     try {
-      var file = require("html-wiring").readFileAsString("constants/ACTION_NAMES.json");
+      var file = require("html-wiring").readFileAsString(state.CONSTANTS_PATH+"ACTION_NAMES.json");
       var parsedActions = JSON.parse(file);
       return parsedActions;
     }
@@ -32,7 +33,7 @@ var actionNameCreator = {
     return updatedActions;
   },
   writeActions: function(generator, actions){
-    var file = require("html-wiring").writeFileFromString( JSON.stringify(actions, 2, 2), "constants/ACTION_NAMES.json");
+    var file = require("html-wiring").writeFileFromString( JSON.stringify(actions, 2, 2), state.CONSTANTS_PATH+"ACTION_NAMES.json");
 
   },
   logActions: function(){

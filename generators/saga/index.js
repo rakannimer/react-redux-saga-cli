@@ -37,9 +37,11 @@ module.exports = yeoman.Base.extend({
       }.bind(this));
     }
     else {
-      this.props = this.options.props;
+      let actions = this.options.props.ACTION_NAMES.split(' ');
+      this.props = Object.assign({}, this.options.props, {
+        actions
+      });
     }
-
   },
 
   writing: function () {

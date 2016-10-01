@@ -9,6 +9,7 @@ var actionNameCreator = require("../../helpers/actionNameCreator");
 module.exports = require('yeoman-generator').Base.extend({
   prompting: function(){
       this.props = {prop:'a'};
+      actionNameCreator.logActions();
       var prompts = [
         {
           type: 'input',
@@ -44,7 +45,7 @@ module.exports = require('yeoman-generator').Base.extend({
         var updatedActions = actionNameCreator.addActions(newActions);
         var feature = {
           COMPONENT_NAME: props.FEATURE_NAME,
-          ACTION_NAMES: props.ACTION_NAMES.split(' '),
+          ACTION_NAMES: props.ACTION_NAMES,
           SAGA_NAME: props.FEATURE_NAME,
           REDUCER_NAME: props.FEATURE_NAME,
           FEATURE_TYPE:props.FEATURE_TYPE,

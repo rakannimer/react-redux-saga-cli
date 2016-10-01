@@ -12,9 +12,9 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
-    var reducersPath = path.join(process.cwd(),'reducers');
+    var reducersPath = path.join(state.REDUCERS_PATH);
 
-    var sagasPath = path.join(process.cwd(),'sagas');
+    var sagasPath = path.join(state.SAGAS_PATH);
 
     try {
       var sagas = fs.readdirSync(sagasPath);
@@ -26,11 +26,13 @@ module.exports = yeoman.Base.extend({
       if (indexFileIndex > -1){
         sagas.splice(indexFileIndex, 1);
       }
+      console.log("HERE: " +sagas[0]);
     }
     catch(err){
+      console.log("ERROR ", err);
       var sagas = [];
     }
-    var middlewaresPath = path.join(process.cwd(),'middlewares');
+    var middlewaresPath = path.join(state.MIDDLEWARES_PATH);
 
     try {
         var middlewares = fs.readdirSync(middlewaresPath);

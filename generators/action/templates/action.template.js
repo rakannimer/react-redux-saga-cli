@@ -1,8 +1,5 @@
 import keymirror from 'keymirror';
 
 const ACTION_NAMES = keymirror({
-
-  <% for (var i =0; i < actions.length; i++) { %> <%= actions[i] %>:null,
-  <% } %>
-});
-export {ACTION_NAMES};
+<%= actions.map(function(action){ return "  "+action+": null,"; }).join("\n")+"\n});" %>
+export { ACTION_NAMES };
