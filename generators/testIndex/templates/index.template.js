@@ -13,9 +13,9 @@ jest.mock('material-ui/styles/MuiThemeProvider');
 <% for (var i = 0; i < components.length; i++) { %>
 describe('<%= components[i].split('.')[0]%> test', () => {
   it('<%= components[i].split('.')[0]%> should match snapshot', () => {
-    const component = renderer.create(<<%= components[i].split('.')[0]%><% if (props[i].length == 0){ %> />);<% }%>
-<%= props[i].map((prop) => "      "+prop.split(".")[0]+"={"+prop.split(".").filter((leaf, i)=> i > 0).join(".")+"}").join("\n")%>
-<% if (props[i].length > 0) { %>    />); <% } %>
+    const component = renderer.create(<<%= components[i].split('.')[0]%>
+<%= props[i].map((prop) => "      "+prop.split(".")[0]+"={"+prop.split(".").filter((leaf, i)=> i > 0).join(".")+"}").join("\n") %>
+    />);
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
